@@ -1,0 +1,206 @@
+1. Do the below programs in anonymous function & IIFE
+    a.Print odd numbers in an array
+        AnonymouesFunction = (function(a){
+        for(var i = 0 ; i< a.length ; i++){
+                            if(a[i]%2!=0){
+                            console.log(a[i])
+                            } 
+                    }
+                    })
+        IIFEFunction=  function(a){
+                for(var i = 0 ; i< a.length ; i++){
+                            if(a[i]%2!=0){
+                            console.log(a[i])
+                            } 
+                    }
+                })([1,2,3,4])
+
+    b.Convert all the strings to title caps in a string array
+        // //  Anonymoues Function
+        (function (str) {
+                            str = str.toLowerCase().split(' ');
+                            for (var i = 0; i < str.length; i++) {
+                            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+                            } 
+                            return str.join(' ');
+                        })
+
+        // IIFEFunction=
+        (function (str) {
+                            str = str.toLowerCase().split(' ');
+                            for (var i = 0; i < str.length; i++) {
+                            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+                            } 
+                            return str.join(' ');
+                        })("MUDRA IS MY NAME");
+    c.Sum of all numbers in an array
+    // //  Anonymoues Function
+                function (array){
+                    var sum = 0
+                    for (i=0;i<array.length;i++){
+                    sum = sum+array[i];
+                }
+                return sum;
+                }
+    // IIFEFunction=
+                (function (array){
+                    var sum = 0
+                    for (i=0;i<array.length;i++){
+                    sum = sum+array[i];
+                }
+                return sum;
+                })([1,2,3,4,5])
+    d.Return all the prime numbers in an array
+    // //  Anonymoues Function
+                function (myArray){
+                myArray = myArray.filter((number) =>{
+                    for (var i=2;i<=Math.sqrt(number);i++){
+                        if (number%i==0) return false;
+                    }
+                    return true;
+                })
+                console.log(myArray)};
+     // IIFEFunction=
+                (function (myArray){
+                myArray = myArray.filter((number) =>{
+                    for (var i=2;i<=Math.sqrt(number);i++){
+                        if (number%i==0) return false;
+                    }
+                    return true;
+                })
+                console.log(myArray)})([1,2,3,4,5,6,7,8,9])
+    e.Return all the palindromes in an array
+    // //  Anonymoues Function
+                function(array) {
+                var isPalindrome = function(str) {
+                    var reversedStr = str.split("").reverse().join("");
+                    return str === reversedStr;
+                };
+
+                var palindromes = array.filter(function(str) {
+                    return isPalindrome(str);
+                });
+                console.log(palindromes);
+                }
+    // IIFEFunction=
+                (function(array) {
+                var isPalindrome = function(str) {
+                    var reversedStr = str.split("").reverse().join("");
+                    return str === reversedStr;
+                };
+
+                var palindromes = array.filter(function(str) {
+                    return isPalindrome(str);
+                });
+                console.log(palindromes);
+                })(["eve", "hello", "madam"])
+    f.Return median of two sorted arrays of the same size.
+    // //  Anonymoues Function
+                    var findMedian = function(arr1, arr2) {
+                var mergedArray = arr1.concat(arr2);
+                mergedArray.sort(function(a, b) {
+                    return a - b;
+                });
+
+                var length = mergedArray.length;
+                var midIndex = Math.floor(length / 2);
+
+                if (length % 2 === 0) {
+                    return (mergedArray[midIndex - 1] + mergedArray[midIndex]) / 2;
+                } else {
+                    return mergedArray[midIndex];
+                }
+                };
+    // IIFEFunction=
+                (function(arr1, arr2) {
+                var mergedArray = arr1.concat(arr2);
+                mergedArray.sort(function(a, b) {
+                    return a - b;
+                });
+
+                var length = mergedArray.length;
+                var midIndex = Math.floor(length / 2);
+
+                if (length % 2 === 0) {
+                    console.log((mergedArray[midIndex - 1] + mergedArray[midIndex]) / 2);
+                } else {
+                    console.log(mergedArray[midIndex]);
+                }
+                })([1, 3, 5], [2, 4, 6]);
+    g.Remove duplicates from an array
+    // //  Anonymoues Function
+                function(arr){
+                    console.log([...new Set(arr)]);
+                };
+    // IIFEFunction=
+                (function(arr){
+                    console.log([...new Set(arr)]);
+                })([1,2,3,4,4,5,5,])
+    h.Rotate an array by k times
+    // //  Anonymoues Function     
+                function(array, k) {
+                for (var i = 0; i < k; i++) {
+                    var element = array.pop();
+                    array.unshift(element);
+                }
+                console.log(array);
+                };
+    // IIFEFunction=
+                (function(array, k) {
+                for (var i = 0; i < k; i++) {
+                    var element = array.pop();
+                    array.unshift(element);
+                }
+                console.log(array);
+                })([1, 2, 3, 4, 5], 2);
+2.Do the below programs in arrow functions
+    a.Print odd numbers in an array
+            const printOddNumbers = (array) => {
+            array.forEach((number) => {
+                if (number % 2 !== 0) {
+                console.log(number);
+                }
+            });
+            };
+
+            printOddNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    b.Convert all the strings to title caps in a string array
+            const convertToTitleCaps = (array) => {
+            const titleCapsArray = array.map((str) => {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            });
+            console.log(titleCapsArray);
+            };
+
+            convertToTitleCaps(["how", "are", "you"]);
+    c.Sum of all numbers in an array
+            const sumOfNumbers = (array) => {
+            const sum = array.reduce((total, number) => total + number, 0);
+            console.log(sum);
+            };
+
+            sumOfNumbers([1, 2, 3, 4, 5]);
+
+    d.Return all the prime numbers in an array
+            const getPrimeNumbers = (myArray) => {
+                myArray = myArray.filter((number) =>{
+                    for (var i=2;i<=Math.sqrt(number);i++){
+                        if (number%i==0) return false;
+                    }
+                    return true;
+                })
+                console.log(myArray)};
+            getPrimeNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    e.Return all the palindromes in an array
+            const getPalindromes = (array) => {
+            const palindromes = array.filter((word) => {
+                const reversed = word.split("").reverse().join("");
+                return word === reversed;
+            });
+            console.log(palindromes);
+            };
+
+            getPalindromes(["madam", "hello", "racecar", "world"]);
+
+
+
